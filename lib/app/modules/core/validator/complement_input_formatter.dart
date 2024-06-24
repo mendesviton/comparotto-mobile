@@ -50,4 +50,8 @@ class ComplementInputFormatter implements CompoundableFormatter {
 
   @override
   Iterable<String>? get autofillHints => [''];
+
+  @override
+  // TODO: implement suffixText
+  String? get suffixText => throw UnimplementedError();
 }

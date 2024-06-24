@@ -1,9 +1,11 @@
 import 'package:comparotto/app/modules/core/validator/compoundable_formatter.dart';
-import 'package:comparotto/app/modules/extensions/app_theme.dart';
-import 'package:comparotto/app/modules/extensions/context_extension.dart';
+import 'package:comparotto/app/modules/core/extensions/app_theme.dart';
+import 'package:comparotto/app/modules/core/extensions/context_extension.dart';
+import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 class StandardTextField extends StatefulWidget {
   final CompoundableFormatter compoundableFormatter;
@@ -145,7 +147,18 @@ class _StandardTextFieldState extends State<StandardTextField> {
                     }),
             ),
           )
-        : widget.compoundableFormatter.suffixIcon;
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Text(
+                  widget.compoundableFormatter.suffixText!,
+                  style: context.theme.textTheme.smallBlackTextStyle,
+                ),
+              ),
+            ],
+          );
   }
 
   OutlineInputBorder _buildOutlineInputBorder() {

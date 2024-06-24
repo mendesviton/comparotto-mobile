@@ -1,16 +1,14 @@
 import 'package:comparotto/app/modules/core/res/app_strings.dart';
 import 'package:comparotto/app/modules/core/validator/compoundable_formatter.dart';
 import 'package:flutter/material.dart';
-// ignore: implementation_imports
-import 'package:flutter/src/services/text_formatter.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:flutter/services.dart';
 export 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class EmailInputFormatter extends CompoundableFormatter {
+class NameProductInputFormatter extends CompoundableFormatter {
   @override
-  String hint = AppStrings.emailHint;
+  String hint = 'ex: Arroz são joão 1kg';
   @override
-  String label = AppStrings.emailLabel;
+  String? label = AppStrings.productNameLabel;
   @override
   String get labelTip => '';
   @override
@@ -33,36 +31,38 @@ class EmailInputFormatter extends CompoundableFormatter {
   }
 
   @override
-  int? get maxLength => null;
+  int? get maxLength => 200;
 
   @override
   TextInputType get textInputType => TextInputType.emailAddress;
 
   @override
   String? Function(String? value)? get validator =>
-      (value) => validateEmail(value);
+      (value) => validateName(value);
 
   @override
-  TextInputFormatter get inputFormatter => MaskTextInputFormatter(
-      filter: {"#": RegExp(r'[^a-zA-ZÀ-ÿ ]')},
-      type: MaskAutoCompletionType.lazy);
-
+  TextInputFormatter get inputFormatter =>
+      FilteringTextInputFormatter.allow(RegExp("[a-z A-ZÀ-ÿ]"));
   @override
   Icon get suffixIcon => const Icon(
         Icons.email_outlined,
         color: Color.fromARGB(255, 197, 197, 197),
       );
-  static String? validateEmail(String? value) {
+  static String? validateName(String? value) {
+    value = value?.trim();
     if (value == null || value.isEmpty) {
-      return ValidatorErrorStrings.mandatoryEmailField;
+      return ValidatorErrorStrings.mandatoryData;
     }
 
-    final emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
-
-    if (!emailRegex.hasMatch(value)) {
-      return ValidatorErrorStrings.invalidEmailError;
+    final hasNumbers = value.contains(RegExp(r'[0-9]'));
+    if (hasNumbers) {
+      return ValidatorErrorStrings.containNumberError;
     }
 
     return null;
   }
+
+  @override
+  // TODO: implement suffixText
+  String? get suffixText => throw UnimplementedError();
 }

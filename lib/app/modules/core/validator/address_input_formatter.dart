@@ -52,4 +52,8 @@ class AddressInputFormatter extends CompoundableFormatter {
 
     return null;
   }
+
+  @override
+  // TODO: implement suffixText
+  String? get suffixText => throw UnimplementedError();
 }

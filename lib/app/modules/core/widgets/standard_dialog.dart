@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:comparotto/app/modules/extensions/context_extension.dart';
+import 'package:comparotto/app/modules/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class StandardDialogParams {
@@ -24,7 +24,6 @@ class StandardDialog extends StatelessWidget {
         child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
             child: Container(
-              height: context.width * 0.7,
               width: context.width * 0.8,
               decoration: BoxDecoration(
                 boxShadow: [
@@ -37,25 +36,27 @@ class StandardDialog extends StatelessWidget {
                 color: const Color.fromARGB(255, 246, 246, 246),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      standardDialogsParams.title,
-                      style: context
-                          .theme.textTheme.mediumGreenDmSansRegularTextStyle,
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        standardDialogsParams.title,
+                        style: context
+                            .theme.textTheme.mediumGreenDmSansRegularTextStyle,
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [standardDialogsParams.content],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                      )
+                    ],
+                  )
+                  // ),
+                  // ],
+                  // ),
+                  ),
             )),
       ),
     );

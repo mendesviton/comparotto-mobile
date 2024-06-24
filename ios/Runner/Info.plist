@@ -20,6 +20,8 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>NSCameraUsageDescription</key>
+    <string>Camera permission is required for barcode scanning.</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -34,6 +36,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Precisamos acessar suas fotos para atualizar a image.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Precisamos da sua permissão para te mostrar as barbearias mais próximas a você.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Precisamos da sua permissão para te mostrar as barbearias mais próximas a você.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

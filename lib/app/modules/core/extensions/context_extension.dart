@@ -1,4 +1,4 @@
-import 'package:comparotto/app/modules/extensions/app_theme.dart';
+import 'package:comparotto/app/modules/core/extensions/app_theme.dart';
 import 'package:flutter/material.dart';
 
 extension ContextExt on BuildContext {
@@ -69,6 +69,11 @@ extension CustomTextThemeX on TextTheme {
         color: const Color(0xFF036A33),
         fontWeight: FontWeight.w600,
       );
+  TextStyle get large24BlackTextStyle => _large24Text.copyWith(
+        height: 0,
+        fontFamily: AppFontFamily.dmSansRegular,
+        fontWeight: FontWeight.w600,
+      );
   TextStyle get mediumGreenDmSansRegularTextStyle =>
       large24WhiteTextStyle.copyWith(
         height: 0,
@@ -101,6 +106,21 @@ extension CustomTextThemeX on TextTheme {
       color: AppColors.black,
       height: 0,
       fontWeight: FontWeight.w300,
+      fontFamily: AppFontFamily.dmSansRegular);
+  TextStyle get mediumBlackBoldTextStyle => _mediumText.copyWith(
+      color: AppColors.black,
+      height: 0,
+      fontWeight: FontWeight.bold,
+      fontFamily: AppFontFamily.dmSansRegular);
+  TextStyle get large24BlackBoldTextStyle => _large24Text.copyWith(
+      color: AppColors.black,
+      height: 0,
+      fontWeight: FontWeight.bold,
+      fontFamily: AppFontFamily.dmSansRegular);
+  TextStyle get large24greyBoldTextStyle => _large24Text.copyWith(
+      color: AppColors.greyFF7D8589,
+      height: 0,
+      fontWeight: FontWeight.bold,
       fontFamily: AppFontFamily.dmSansRegular);
   TextStyle get smallBlackTextStyle => _smallText.copyWith(
         color: AppColors.black,
@@ -136,6 +156,11 @@ extension StringExt on String {
     final taxVatRegex = RegExp(r'^(\d{3})(\d{3})(\d{3})(\d{2})$');
     return numbersOnly.replaceFirstMapped(taxVatRegex,
         (match) => '${match[1]}.${match[2]}.${match[3]}-${match[4]}');
+  }
+
+  String get firstName {
+    final words = split(' ');
+    return words.isNotEmpty ? words.first : '';
   }
 
   String get formattedCellphone {

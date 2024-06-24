@@ -1,4 +1,5 @@
 import 'package:comparotto/app/modules/core/widgets/standard_button.dart';
+import 'package:comparotto/app/modules/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class StandardBottomSheetParams {
@@ -49,32 +50,25 @@ class StandardBottomSheet extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
             ),
             Text(standardbottomSheetParams.title,
-                style: const TextStyle(
-                  height: 0,
-                  fontSize: 25,
-                  fontFamily: 'Bellfort',
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.w600,
-                )),
+                style: context.theme.textTheme.large24BlackTextStyle),
             const SizedBox(
               height: 20,
             ),
-            Text(standardbottomSheetParams.content,
-                style: const TextStyle(
-                  height: 0,
-                  fontSize: 18,
-                  fontFamily: 'Bellfort',
-                  color: Color.fromARGB(255, 203, 203, 203),
-                  fontWeight: FontWeight.w600,
-                )),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: Text(standardbottomSheetParams.content,
+                  style: context.theme.textTheme.mediumGreyTextStyle),
+            ),
             for (int i = 0;
                 i <
                     standardbottomSheetParams
                         .standardBottomSheetButtonContenParamsList.length;
                 i++)
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
                 child: StandardButton(
+                  onPressed: standardbottomSheetParams
+                      .standardBottomSheetButtonContenParamsList[i].onPressed,
                   text: standardbottomSheetParams
                       .standardBottomSheetButtonContenParamsList[i].title,
                   borderColor: const Color(0xFF5DB075),

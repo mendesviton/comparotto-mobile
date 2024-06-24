@@ -1,4 +1,5 @@
-import 'package:comparotto/app/modules/home/presentation/view/home_page.dart';
+import 'package:comparotto/app/modules/core/extensions/context_extension.dart';
+import 'package:comparotto/app/modules/home/data/model/home_models.dart';
 import 'package:comparotto/app/modules/core/widgets/standard_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,10 +18,7 @@ class HomeButton extends StatelessWidget {
       onTap: () => showModalBottomSheet(
         context: context,
         builder: (context) => StandardBottomSheet(
-          standardbottomSheetParams: StandardBottomSheetParams(
-              content: 'aaaa',
-              title: 'aaaaaa',
-              standardBottomSheetButtonContenParamsList: []),
+          standardbottomSheetParams: buttonModel.standardBottomSheetParams,
         ),
       ),
       child: Container(
@@ -36,13 +34,9 @@ class HomeButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Text(buttonModel.title,
-                  style: const TextStyle(
-                    height: 0,
-                    fontSize: 18,
-                    fontFamily: 'Bellfort',
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.w600,
-                  )),
+                  style: context.theme.textTheme.mediumBlackTextStyle.copyWith(
+                      color: buttonModel.textColor,
+                      fontWeight: FontWeight.w900)),
             )
           ],
         ),

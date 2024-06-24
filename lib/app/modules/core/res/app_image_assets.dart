@@ -30,3 +30,12 @@ class AppImageAssets {
   static const menu = '$assetsImagePath/menu-hamburguer.svg';
   static const workout = '$assetsImagePath/Workout.svg';
 }
+
+class AppIconAssets {
+  static const assetsIconsPath = 'assets/icons';
+  static const barcodeIcon = '$assetsIconsPath/barcode.svg';
+  static const galleryIcon = '$assetsIconsPath/gallery-icon.svg';
+  static const pathIcon = '$assetsIconsPath/path-icon.svg';
+  static const photoIcon = '$assetsIconsPath/photo-icon.svg';
+  static const sadFace = '$assetsIconsPath/sad-face.svg';
+}

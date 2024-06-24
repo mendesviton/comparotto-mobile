@@ -47,4 +47,8 @@ class CityInputFormatter implements CompoundableFormatter {
 
   @override
   Icon? get suffixIcon => null;
+
+  @override
+  // TODO: implement suffixText
+  String? get suffixText => throw UnimplementedError();
 }

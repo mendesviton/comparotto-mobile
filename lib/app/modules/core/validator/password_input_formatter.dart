@@ -54,26 +54,14 @@ class PasswordInputFormatter extends CompoundableFormatter {
       return ValidatorErrorStrings.mandatoryPasswordField;
     }
 
-    if (value.length < 8) {
+    if (value.length < 3) {
       return ValidatorErrorStrings.passwordLengthError;
-    }
-
-    if (!RegExp(r'[A-Z]').hasMatch(value)) {
-      return ValidatorErrorStrings.uppercaseLetterError;
-    }
-
-    if (!RegExp(r'[a-z]').hasMatch(value)) {
-      return ValidatorErrorStrings.lowercaseLetterError;
-    }
-
-    if (!RegExp(r'[0-9]').hasMatch(value)) {
-      return ValidatorErrorStrings.numberError;
-    }
-
-    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-      return ValidatorErrorStrings.specialCharacterError;
     }
 
     return null;
   }
+
+  @override
+  // TODO: implement suffixText
+  String? get suffixText => throw UnimplementedError();
 }

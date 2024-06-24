@@ -5,6 +5,8 @@ class AppStrings {
   static const String address = 'Address';
   static const String emailHint = 'Enter your email';
   static const String enter = 'Entrar';
+  static const String productNameLabel = 'Nome do produto';
+  static const String changeEmployee = 'Trocar funcionário';
   static const String emailLabel = 'Email';
   static const String city = 'City';
   static const String cnpjComplementLabel = 'CNPJ or Category number';
@@ -13,6 +15,7 @@ class AppStrings {
   static const String neighborhoodLabel = 'Neighborhood';
   static const String emailVerified = 'Email Verified';
   static const String verify = 'Verify';
+  static const String enterDate = 'Data de entrada';
   static const String didnReceiveTheCode = 'Didn’t receive the code?';
   static const String enterTheSendCode = 'Enter the code sent to';
   static const String identityVerification = 'Identity verification';
@@ -125,7 +128,7 @@ class ValidatorErrorStrings {
   static const String mandatoryPasswordField = 'Please enter your password';
   static const String mandatoryEmailField = 'Email field required';
   static const String mandatoryCepField = 'ZIP code field required';
-  static const String mandatoryData = 'Date field required';
+  static const String mandatoryData = 'Campo obrigatório';
   static const String passwordLengthError = 'Minimum of 8 characters.';
   static const String uppercaseLetterError = 'At least one uppercase letter.';
   static const String lowercaseLetterError = 'At least one lowercase letter.';

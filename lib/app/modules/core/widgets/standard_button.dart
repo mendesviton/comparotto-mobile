@@ -69,7 +69,7 @@ class StandardButton extends StatelessWidget {
                   width: 1.5,
                 ),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
               onPressed: enabled!

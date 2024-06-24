@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:comparotto/app/modules/core/extensions/context_extension.dart';
 import 'package:comparotto/app/modules/onboard/presentation/view/splash_page.dart';
+import 'package:comparotto/app/modules/product/presentation/cubit/product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -13,22 +15,44 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late GetIt getIt;
+  @override
+  void initState() {
+    getIt = GetIt.instance;
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    GetIt getIt = GetIt.instance;
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (context) => getIt.get<HomeCubit>(),
         ),
+        BlocProvider(
+          create: (context) => getIt.get<ProductCubit>(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(
-            bottomSheetTheme: const BottomSheetThemeData(
-                surfaceTintColor: Colors.white, backgroundColor: Colors.white)),
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+          primaryColor: Colors.black,
+          colorScheme: context.theme.colorScheme,
+          bottomSheetTheme: const BottomSheetThemeData(
+            surfaceTintColor: Colors.white,
+            backgroundColor: Colors.white,
+          ),
+        ),
         routes: routes,
         debugShowCheckedModeBanner: false,
         initialRoute: SplashPage.route,
